@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "pockode": {
+      "args": [
+        "mcp",
+        "--data-dir",
+        "/workspace/target_repo/.pockode"
+      ],
+      "command": "/usr/local/bin/pockode"
+    }
+  }
+}

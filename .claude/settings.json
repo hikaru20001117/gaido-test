@@ -1,0 +1,27 @@
+{
+    "permissions": {
+        "allow": [
+            "Bash",
+            "Read",
+            "Write",
+            "Edit",
+            "MultiEdit",
+            "Glob",
+            "Grep",
+            "WebFetch",
+            "WebSearch",
+            "Task",
+            "TodoWrite",
+            "NotebookEdit",
+            "Skill",
+            "MCP",
+            "mcp__context7__resolve-library-id",
+            "mcp__context7__query-docs",
+            "mcp__socraticode"
+        ]
+    },
+    "defaultMode": "bypassPermissions",
+    "env": {
+        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    }
+}

@@ -1,0 +1,25 @@
+time=2026-06-02T06:28:07.100Z level=INFO msg="store watching for external changes" label=settings path=/workspace/target_repo/.pockode/settings.json
+time=2026-06-02T06:28:07.108Z level=INFO msg="seeded default agent roles" count=4
+time=2026-06-02T06:28:07.108Z level=INFO msg="store watching for external changes" label=work path=/workspace/target_repo/.pockode/works/index.json
+time=2026-06-02T06:28:07.108Z level=INFO msg="store watching for external changes" label=agent-role path=/workspace/target_repo/.pockode/agent-roles/index.json
+time=2026-06-02T06:28:07.114Z level=INFO msg="WorktreeWatcher started" mainDir=/workspace/target_repo pollInterval=3s
+time=2026-06-02T06:28:07.114Z level=INFO msg="SettingsWatcher started"
+time=2026-06-02T06:28:07.114Z level=INFO msg="WorkListWatcher started"
+time=2026-06-02T06:28:07.114Z level=INFO msg="WorkDetailWatcher started"
+time=2026-06-02T06:28:07.114Z level=INFO msg="AgentRoleListWatcher started"
+time=2026-06-02T06:28:07.202Z level=INFO msg="server starting" port=9870 workDir=/workspace/target_repo dataDir=/workspace/target_repo/.pockode devMode=false idleTimeout=72h0m0s
+time=2026-06-02T06:28:10.127Z level=INFO msg="new connection" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be
+time=2026-06-02T06:28:10.337Z level=INFO msg="FSWatcher started" workDir=/workspace/target_repo
+time=2026-06-02T06:28:10.339Z level=INFO msg="GitWatcher started" workDir=/workspace/target_repo pollInterval=3s
+time=2026-06-02T06:28:10.339Z level=INFO msg="GitDiffWatcher started" workDir=/workspace/target_repo pollInterval=3s
+time=2026-06-02T06:28:10.339Z level=INFO msg="SessionListWatcher started"
+time=2026-06-02T06:28:10.339Z level=INFO msg="ChatMessagesWatcher started"
+time=2026-06-02T06:28:10.339Z level=INFO msg="worktree created" name="" workDir=/workspace/target_repo
+time=2026-06-02T06:28:10.339Z level=INFO msg=authenticated connId=019e8704-a90f-75c0-a66b-b9328ac0d9be worktree="" workDir=/workspace/target_repo
+time=2026-06-02T06:28:10.353Z level=INFO msg="session created" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b
+time=2026-06-02T06:28:10.407Z level=INFO msg="subscribed to chat messages" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_bdf4v6qrga state=ended mode=default
+time=2026-06-02T06:28:10.408Z level=INFO msg="subscribed to chat messages" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_rupo6yjjpi state=ended mode=default
+time=2026-06-02T06:28:10.491Z level=INFO msg="received prompt" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=129
+time=2026-06-02T06:28:10.492Z level=INFO msg="claude process started" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b pid=641 mode=default
+time=2026-06-02T06:28:10.493Z level=INFO msg="process created" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b resume=false agentType=claude mode=default
+time=2026-06-02T06:28:10.508Z level=INFO msg="session title updated" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b title=新しくチャットを始めます。何ができるか教えて（このメッセージ...
