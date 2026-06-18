@@ -6,6 +6,7 @@
 
 - 開発はウォーターフォールモデルを前提とする
 - このシステムは人間の手離れが良いことを美徳とする。人間の判断が必要になるまでなるべく自動的に動き続けること
+- 利用者向けの最終成果物（提案書・見積・計画書・QA一覧・リスク計画・案件判定/分析レポート・ペルソナ等）を新規作成・更新したら、ユーザーの明示指示を待たず毎回 Box へ自動アップロードする。`.box/credentials.json` がある場合のみ実行し、未連携/失効時はローカル保存にとどめ、その理由を一度だけ伝えてローカルパスを案内する（サイレントスキップ禁止）。中間ファイル・スクリーンショット・実装コード・認証情報は上げない。専用スキルが既に自動アップロードする成果物は二重に上げない。対象範囲・除外・アップロード先パスの決め方・アップロード後の案内は [.claude/rules/box-integration.md](.claude/rules/box-integration.md) を参照
 - フローチャートやシーケンス図などは、ASCIIアートで表現するのではなく、マークダウンファイル内にmermaid記法で表現すること
 
 ## 開発ワークフロー概要
@@ -46,12 +47,8 @@
 │       ├── finalize-operations/  # 成果まとめ手順（phase-finalizeにプリロード）
 │       ├── existing-local-run-operations/  # 既存ソースローカル実行手順（親コンテキストで実行）
 │       ├── existing-source-analysis-operations/       # 既存ソース解析手順（オーケストレーター用）
-│       │   └── scripts/
-│       │       ├── comment-writer.sh                  # 1ファイルのコメント付与（claude -pで実行）
-│       │       └── comment-orchestrator.sh            # comment-writer.shの並列起動・再投入制御
 │       ├── existing-source-analysis-operations-step1/ # 既存ソース解析Step 1: タスク準備
-│       ├── existing-source-analysis-operations-step2/ # 既存ソース解析Step 2: コメント付与ルール定義（comment-writer.shのsystem-prompt-file）
-│       ├── existing-source-analysis-operations-step3/ # 既存ソース解析Step 3: 後処理+コメント関連検証
+│       ├── existing-source-analysis-operations-step3/ # 既存ソース解析Step 3: 後処理（APIドキュメント生成・file_structure.md生成）
 │       ├── existing-source-analysis-operations-step5/ # 既存ソース解析Step 5: 全体検証
 │       ├── existing-source-analysis-operations-step6/ # 既存ソース解析Step 6: README.md生成・コミット・返却サマリ
 │       ├── existing-doc-analysis-operations/    # 既存ドキュメント解析手順（phase-existing-doc-analysisにプリロード）
@@ -182,11 +179,8 @@ Box の refresh_token は env var で渡さない (Issue #831)。代わりに `~
 | `/gaido-proposal-project-plan` | 提案書・提供資料からプロジェクト計画書（PPTX）を自動生成（`/gaido-proposal-init`完了後に連続実行可能。定型文自動挿入・固有情報抽出・Box連携） |
 | `/gaido-proposal-why-ctc` | SharePointからWhy CTC素材を収集して`why_ctc_materials.md`を生成（`/gaido-proposal-init` Step 3.5から自動呼び出し。単独実行で素材補完も可能） |
 | `test-standards` | テストコード規約（phase-develop/test-run/from-ecc-code-reviewerにプリロード） |
-| `call-sub-agent-using-cli` | SubAgentから別agentを `claude -p` で逐次実行（SubAgent→SubAgent制限の回避策） |
-| `call-teams-using-cli` | SubAgentから複数agentを `claude -p` で並列実行（SubAgent→SubAgent制限の回避策） |
 | `existing-source-analysis-operations-step1` | 既存ソース解析Step 1: タスク準備（ファイル一覧取得・todoファイル生成・冪等チェック） |
-| `existing-source-analysis-operations-step2` | 既存ソース解析Step 2: コメント付与ルール定義（comment-writer.shのsystem-prompt-fileとして使用） |
-| `existing-source-analysis-operations-step3` | 既存ソース解析Step 3: 後処理+コメント関連検証（付与率検証・APIドキュメント生成・file_structure.md生成） |
+| `existing-source-analysis-operations-step3` | 既存ソース解析Step 3: 後処理（APIドキュメント生成・file_structure.md生成） |
 | `existing-source-analysis-operations-step5` | 既存ソース解析Step 5: 全体検証（日本語・必須ファイル・mermaid確認） |
 | `existing-source-analysis-operations-step6` | 既存ソース解析Step 6: README.md生成・コミット＆プッシュ・返却サマリ |
 | `existing-source-analysis-db-operations` | DB構造解析手順（Step 4でSubAgentとしてspawn） |

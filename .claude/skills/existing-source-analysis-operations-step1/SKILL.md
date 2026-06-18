@@ -66,7 +66,7 @@ echo "file_structure.md=$HAS_FILESTRUCT api_documents=$HAS_APIDOCS source_file_t
 | 1 | README.md が存在する | 「全完了スキップ」（全Step完了済み） |
 | 2 | architecture.md + db.md + screens.md + openapi.yaml が全て存在する | 「Step 5から再開」 |
 | 3 | file_structure.md が存在 + api_documents/ にファイルあり | 「Step 4から再開」 |
-| 4 | source_file_tasks.md が存在する | todoファイルの `is-completed` を確認。全完了なら「Step 3から再開」。未完了なら `reset-doing` して「Step 2から再開」 |
+| 4 | source_file_tasks.md が存在する | 「Step 3から再開」とする（後続でコメント付与は行わないため todo の完了状態は不問） |
 | 5 | 上記いずれにも該当しない | Step 2（ソースファイル一覧取得）へ進む |
 
 Leadへの報告は上記の1文のみ（teamleadのコンテキスト保全のため）。判定#5の場合はLeadに報告せずStep 2に進む。

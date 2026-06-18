@@ -164,6 +164,7 @@ chmod -R a-w ai_generated/input/
 ```
 
 **エラー時の対処**:
+- 「Box未連携です」→「Box連携が設定されていません。GAiDoアプリのStep 4でBox連携を有効にしてください。それまでの間、入力資料はローカル（`ai_generated/input/`）に保存されます」と伝え、ローカルフォルダパスを案内する
 - 「接続認証の有効期限が切れています」→「GAiDoアプリのStep 4でBox連携を再設定してください」と伝えスキップ
 - 「IDが存在しません」(404) →「入力したBoxフォルダパスが見つかりません。パスをご確認ください」と伝え再入力を求める
 - 「アクセス権限がありません」(403) →「指定したBoxフォルダへのアクセス権限がありません。Box上の共有設定をご確認ください」と伝える
@@ -321,6 +322,8 @@ story.md のデザイン方針に基づき、Skillツールで `/frontend-design
    ```
 
    アップロード後、「BoxのGAiDo/{案件名}/project_plan/design フォルダにスクリーンショットを保存しました。Box上でスライドの見た目を確認できます」とユーザーに伝える。
+
+   **アップロード失敗時（Box未連携など）**: デザイン確認用スクリーンショットはローカルで確認できる。「Box未連携のため、デザイン確認用スクリーンショットはローカル（`ai_generated/project_plans/{プロジェクト名}/design/slide_*.png`）で確認してください。Box連携を有効にするとBox上でも確認できます（GAiDoアプリの Step 4 で設定できます）」とユーザーに伝える。
 
 4. **AskUserQuestion** でデザイン方向性を確認する（必須・スキップ禁止）
 
@@ -527,7 +530,9 @@ python3 tools/box_client.py upload \
   --folder-path "GAiDo/{案件名}/project_plan"
 ```
 
-Box フォルダ URL を取得してからユーザーに確認を依頼する。
+**アップロード成功時**: Box フォルダ URL を取得してからユーザーに確認を依頼する。
+
+**アップロード失敗時（Box未連携など）**: ローカル保存のままで、「Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。保存先: `ai_generated/project_plans/{プロジェクト名}/output/project_plan_{プロジェクト名}.pptx`」とユーザーに伝える。その場合でも、AskUserQuestion での確認（修正有無確認）は進める。
 
 ```python
 from tools.box_client import BoxClient

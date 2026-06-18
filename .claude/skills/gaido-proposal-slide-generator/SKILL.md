@@ -1843,15 +1843,24 @@ PYEOF
 3. 埋めた内容を以下のパスに保存する
    - argsで `claude_in_pptx_prompt.md` 保存先が指定されている場合: 指定されたパス
    - 指定がない場合: `ai_generated/proposals/{案件名}/claude_in_pptx_prompt.md`
-4. `.box/credentials.json` が存在する場合、Boxにプロンプトファイルをアップロードする
+4. `.box/credentials.json` が存在する場合、Boxに **proposal.pptx 本体（最終成果物）とプロンプトファイルの両方** をアップロードする
    - argsでBox アップロード先が指定されている場合: 指定されたフォルダパス
    - 指定がない場合: `GAiDo/{案件名}/proposal`
 
    ```bash
+   # 提案書PPTX本体（最終成果物）
+   python3 tools/box_client.py upload \
+     ai_generated/proposals/{案件名}/output/proposal.pptx \
+     --folder-path "{Boxアップロード先}"
+   # Claude in PowerPoint 用プロンプト
    python3 tools/box_client.py upload \
      {claude_in_pptx_prompt.mdのパス} \
      --folder-path "{Boxアップロード先}"
    ```
+
+   アップロード成功後は `.claude/rules/box-integration.md` の「## アップロード後のパス案内（ハルシネーション防止）」に従い、`Box path:` 行の値をそのまま引用して保存先を伝える。
+
+   `.box/credentials.json` が存在しない/失効している場合は、Box未連携のためローカルに保存した旨を一度だけ伝え、ローカルパス `ai_generated/proposals/{案件名}/output/proposal.pptx` を案内する（Box連携を有効にすると、この成果物が自動でBoxに保存されます。GAiDoアプリの Step 4 で設定できます）。
 
 **その上で、以下のフォーマットでチャット応答すること:**
 

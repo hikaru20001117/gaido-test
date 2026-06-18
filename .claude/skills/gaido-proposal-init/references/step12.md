@@ -25,19 +25,33 @@
      --folder-path "GAiDo/{案件名}/proposal"
    ```
 
+   **Box未連携の場合（`.box/credentials.json` が存在しない場合）:**
+
+   Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。
+
+   保存先: `ai_generated/proposals/{案件名}/claude_in_pptx_prompt.md`
+
 ---
 
 ## 12-2: story.md / assets/ を Box にアップロード
 
 ```bash
-python3 tools/box_client.py upload \
-  ai_generated/proposals/{案件名}/story.md \
-  --folder-path "GAiDo/{案件名}/proposal"
-# assets/ 内のファイルを1件ずつアップロード
-for f in ai_generated/proposals/{案件名}/assets/*; do
-  [ -f "$f" ] && python3 tools/box_client.py upload "$f" \
-    --folder-path "GAiDo/{案件名}/proposal/assets"
-done
+# Box連携が有効な場合のみ実行
+if [ -f .box/credentials.json ]; then
+  python3 tools/box_client.py upload \
+    ai_generated/proposals/{案件名}/story.md \
+    --folder-path "GAiDo/{案件名}/proposal"
+  # assets/ 内のファイルを1件ずつアップロード
+  for f in ai_generated/proposals/{案件名}/assets/*; do
+    [ -f "$f" ] && python3 tools/box_client.py upload "$f" \
+      --folder-path "GAiDo/{案件名}/proposal/assets"
+  done
+else
+  echo "Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。"
+  echo "保存先:"
+  echo "  - ai_generated/proposals/{案件名}/story.md"
+  echo "  - ai_generated/proposals/{案件名}/assets/"
+fi
 ```
 
 ---
@@ -45,18 +59,20 @@ done
 ## 12-3: Box フォルダ URL を取得
 
 ```python
-# BoxフォルダIDを取得してURLを構築する
-import subprocess, json, sys
-result = subprocess.run(
-    ["python3", "tools/box_client.py", "list", "--folder-path", "GAiDo/{案件名}/proposal"],
-    capture_output=True, text=True
-)
-# box_client.py list の出力からフォルダIDを取得できない場合は resolve_folder_path を使う
-from tools.box_client import BoxClient
-client = BoxClient()
-folder_id = client.resolve_folder_path("GAiDo/{案件名}/proposal")
-box_url = f"https://app.box.com/folder/{folder_id}"
-print(box_url)
+import os
+
+# Box連携が有効な場合のみ実行
+if os.path.exists('.box/credentials.json'):
+    # BoxフォルダパスからフォルダIDを解決してURLを構築する
+    from tools.box_client import BoxClient
+    client = BoxClient()
+    folder_id = client.resolve_folder_path("GAiDo/{案件名}/proposal")
+    box_url = f"https://app.box.com/folder/{folder_id}"
+    print(f"Box URL: {box_url}")
+else:
+    print("Box未連携のため、Box URLの取得をスキップしました。")
+    print("Box連携を有効にすると、成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。")
+    print("ローカル保存先: ai_generated/proposals/{案件名}/")
 ```
 
 ---

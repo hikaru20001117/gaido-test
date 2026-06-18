@@ -322,13 +322,15 @@ SharePoint素材が未収集のため、以下を参考にWhy CTCスライドを
 生成した `why_ctc_materials.md` の内容をユーザーに提示し、完了を報告する。
 
 SharePoint検索に成功した場合:
-「Phase 1探索で {M}件の文書からキーワードを発見し、Phase 2収集で {N}件の素材を取得しました。`ai_generated/proposals/{案件名}/why_ctc_materials.md` に保存しました（Box連携あり: BoxのGAiDo/{案件名}/proposalにもアップロード済み）。Step 4以降のストーリー壁打ちでこの素材を活用します。」
+`.box/credentials.json` が存在する場合: 「Phase 1探索で {M}件の文書からキーワードを発見し、Phase 2収集で {N}件の素材を取得しました。`ai_generated/proposals/{案件名}/why_ctc_materials.md` に保存しました（Box連携あり: BoxのGAiDo/{案件名}/proposalにもアップロード済み）。Step 4以降のストーリー壁打ちでこの素材を活用します。」
+`.box/credentials.json` が存在しない場合: 「Phase 1探索で {M}件の文書からキーワードを発見し、Phase 2収集で {N}件の素材を取得しました。`ai_generated/proposals/{案件名}/why_ctc_materials.md` に保存しました（Box未連携のためローカル保存となります。Box連携を有効にすると、この成果物が自動でBoxに保存されます。GAiDoアプリの Step 4 で設定できます）。Step 4以降のストーリー壁打ちでこの素材を活用します。」
 
 EOL警告により停止した場合:
 「{N}件の製品についてEOL・販売終了に関する情報がSharePointで確認されたため停止しました。`ai_generated/proposals/{案件名}/why_ctc_materials.md` にEOL警告情報を保存しました。提案内容を見直してから `/gaido-proposal-why-ctc {案件名}` を再実行してください。」
 
 スキップした場合:
-「SharePoint検索をスキップし、`ai_generated/proposals/{案件名}/why_ctc_materials.md` にガイダンスを保存しました（Box連携あり: BoxにもアップロードOK）。後から `/gaido-proposal-why-ctc {案件名}` を再実行することでSharePoint素材を補完できます。」
+`.box/credentials.json` が存在する場合: 「SharePoint検索をスキップし、`ai_generated/proposals/{案件名}/why_ctc_materials.md` にガイダンスを保存しました（Box連携あり: Boxにもアップロード済み）。後から `/gaido-proposal-why-ctc {案件名}` を再実行することでSharePoint素材を補完できます。」
+`.box/credentials.json` が存在しない場合: 「SharePoint検索をスキップし、`ai_generated/proposals/{案件名}/why_ctc_materials.md` にガイダンスを保存しました（Box未連携のためローカル保存。Box連携を有効にすると、この成果物が自動でBoxに保存されます。GAiDoアプリの Step 4 で設定できます）。後から `/gaido-proposal-why-ctc {案件名}` を再実行することでSharePoint素材を補完できます。」
 
 ## 注意事項
 

@@ -433,6 +433,14 @@ AskUserQuestion で確認:
 
    **Boxアップロードが失敗した場合**: エラー内容をユーザーに伝え、ローカルファイルパスを案内して続行する。
 
+8. **box_available = false の場合**: ローカル保存で完了し、以下をユーザーに通知する:
+
+   ```
+   メェナビ「Box未連携のためローカルに保存しました。Box連携を有効にすると、
+   この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。
+   保存先: `ai_generated/proposals/{案件名}/risk_plan/risk_plan.xlsx`」
+   ```
+
 ---
 
 ## Step 11: 出力確認

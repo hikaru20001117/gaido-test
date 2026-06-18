@@ -8,10 +8,9 @@ user-invocable: false
 
 ソースコードのみを解析し、requirements形式の中間ファイルを `ai_generated/intermediate_files/from_source/` に生成する。
 
-> **最重要ルール（3つとも厳守）:**
-> 1. **あなた（オーケストレーター）は処理の実態を行わない。** Editツール・sedコマンド等でソースファイルや成果物ファイルを変更してはならない。あなたが行うのはSubAgent起動・完了確認のみ。**例外: Step 2ではcomment-orchestrator.shをBash toolで起動する。**
+> **最重要ルール（厳守）:**
+> 1. **あなた（オーケストレーター）は処理の実態を行わない。** Editツール・sedコマンド等でソースファイルや成果物ファイルを変更してはならない。あなたが行うのはSubAgent起動・完了確認のみ。
 > 2. **todoファイルを直接読んだり書いたりしないこと。** todoファイルの操作は `use-exclusive-todo-file` スキルを通して行うこと。ReadやEditでtodoファイルを操作すると、排他制御が効かずタスクの重複取得やステータス不整合が発生する。
-> 3. **Step 2のコメント付与はSubAgentではなくcomment-orchestrator.shで実行する。** SubAgentを直接spawnしてはならない。
 
 ## 定数
 
@@ -66,56 +65,11 @@ todoファイル: ai_generated/intermediate_files/from_source/progress/source_fi
 ```
 
 2. SubAgentの完了を待ち、戻り値に従って該当Stepに進む:
-  - 「完了」→ Step 2へ
+  - 「完了」→ Step 3へ
   - 「Step Nから再開」→ 該当Stepへ
   - 「全完了スキップ」→ 処理終了（全Step完了済み）
 
-## Step 2: コメント付与（comment-orchestrator.sh）
-
-1. comment-orchestrator.shをBash toolで実行する（`run_in_background: true`）
-
-```bash
-bash .claude/skills/existing-source-analysis-operations/scripts/comment-orchestrator.sh \
-  5 \
-  ai_generated/intermediate_files/from_source/progress/source_file_tasks.md \
-  .claude/skills/existing-source-analysis-operations-step2/SKILL.md \
-  3
-```
-
-引数: `<N=5> <todoファイルパス> <コメントルールファイルパス> <MAX_ROUNDS=3>`
-
-2. 完了通知を受け取り、終了コードで判断する:
-   - 終了コード0（全完了）: ログ集計SubAgentをspawnし（下記参照）、Step 3へ
-   - 終了コード1（MAX_ROUNDSラウンド経過しても未完了）: ユーザーに報告して中断
-   - 終了コード2（設定エラー）: ユーザーに報告して中断
-
-3. ログ集計SubAgentをspawnする
-
-| Agent toolパラメータ | 値 |
-|---------------------|-----|
-| model | `"sonnet"` |
-| run\_in\_background | `true` |
-| prompt | 下記のspawnプロンプト |
-
-```
-ワーカーログを集計してサマリレポートを生成してください。
-
-ログファイル: ai_generated/intermediate_files/from_source/progress/comment_writer_*.log
-todoファイル: ai_generated/intermediate_files/from_source/progress/source_file_tasks.md
-出力先: ai_generated/intermediate_files/from_source/progress/step2_summary.md
-
-集計内容:
-1. 全体サマリ（総ファイル数、成功数[x]、失敗数[!]、未処理数[ ]、総コスト、総処理時間）
-2. ワーカー別サマリ（テーブル形式: ワーカーID、処理ファイル数、成功数、失敗数、稼働時間、終了理由）
-3. 失敗ファイル一覧（[!]状態のファイルと失敗理由）
-4. 異常検知（編集なし完了DONE_NO_CHANGEのファイル一覧、コストが異常に高いファイル）
-
-完了したらサマリの内容を返してください。
-```
-
-4. ログ集計SubAgentの返却サマリを受け取る（内容をそのまま保持。Step 3に渡す情報として使用）
-
-## Step 3: 後処理（検証・APIドキュメント・file_structure.md）
+## Step 3: 後処理（APIドキュメント生成・file_structure.md）
 
 1. 以下の設定でSubAgent 1名をspawnする
 
@@ -127,12 +81,9 @@ todoファイル: ai_generated/intermediate_files/from_source/progress/source_fi
 
 ```
 まずCLAUDE.mdと.claude/rules/配下の全ルールファイルを読んでください。次に`/existing-source-analysis-operations-step3` スキルの手順に従ってください。
-todoファイル: ai_generated/intermediate_files/from_source/progress/source_file_tasks.md
 ```
 
-2. SubAgentの完了を待ち、戻り値に従う:
-  - 「完了」→ Step 4へ
-  - 「Step 2からやり直し」→ Step 2に戻る
+2. SubAgentの完了を待ち、完了したら Step 4 へ進む。
 
 ## Step 4: 専門分析（並列処理）
 
@@ -204,13 +155,12 @@ done
 
 2. SubAgentから返却サマリを受け取ったら、その内容をそのまま表示する。
 
-## 省略モード（コメント付与スキップ）
+## 省略モード（APIドキュメント生成もスキップ）
 
-メインAgentから「コメント付与をスキップ」の指示がある場合、以下の手順で実行する:
+ステップ 0c の ASK で「スキップする」が選ばれた場合（APIドキュメント生成も行わない高速モード）、以下の手順で実行する。
 
-- Step 1（タスク準備）: スキップ
-- Step 2（コメント付与）: スキップ
-- Step 3（後処理）: file_structure.md生成のみ実行。spawnプロンプトに「コメント付与率検証とAPIドキュメント生成はスキップし、file_structure.md生成のみ実行してください」と追記する
+- Step 1（タスク準備）: 実行（冪等チェック・ファイル一覧取得）
+- Step 3（後処理）: file_structure.md 生成のみ実行。spawnプロンプトに「APIドキュメント生成はスキップし、file_structure.md 生成のみ実行してください」と追記する
 - Step 4（専門分析）: 通常通り実行
 - Step 5（全体検証）: 通常通り実行
 - Step 6（README.md生成・コミット・返却サマリ）: 通常通り実行

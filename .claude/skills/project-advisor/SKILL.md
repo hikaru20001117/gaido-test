@@ -252,10 +252,13 @@ flowchart TD
 if [ -f .box/credentials.json ]; then
   python3 tools/box_client.py upload {対象ファイルパス} \
     --folder-path "GAiDo/{案件名}/advisor"
+else
+  echo "⚠️ Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。"
+  echo "保存先: {ローカルパス}"
 fi
 ```
 
-**Box uploadまで完了して初めて終了ポイントの処理が完了する。**
+**Box uploadまで完了して初めて終了ポイントの処理が完了する。** credentials.jsonが無い場合は、ローカル保存後にユーザーに通知メッセージを表示する。
 
 ## Phase 0: Box資料読み込み（オプション）
 

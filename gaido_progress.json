@@ -1,0 +1,21 @@
+{
+  "phase": "開発内容選択フェーズ",
+  "status": "starting",
+  "current_task": null,
+  "progress": null,
+  "total": null,
+  "message": null,
+  "timestamp": "2026-06-02T06:29:26.462127+00:00",
+  "flow_type": "undetermined",
+  "ui_phase": "welcome",
+  "ui_phase_number": 1,
+  "ui_phase_total": 1,
+  "ui_phase_label": "開発内容選択",
+  "ui_phases": [
+    {
+      "ui_phase": "welcome",
+      "ui_phase_label": "開発内容選択",
+      "ui_phase_number": 1
+    }
+  ]
+}

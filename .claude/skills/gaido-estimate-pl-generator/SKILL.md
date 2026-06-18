@@ -325,7 +325,8 @@ python3 tools/box_client.py upload ai_generated/estimates/{ファイル名} \
 メェナビ「見積・PLシートの作成が完了したなのです！」
 
   ローカル: ai_generated/estimates/{ファイル名}
-  Box: {Box URL}（Box連携時のみ表示）
+
+  Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。
 ```
 
 ## ファイル読み取りルール

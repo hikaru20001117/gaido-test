@@ -302,14 +302,16 @@ advisor_report: "{対応するadvisorレポートのファイルパス}"
 
 ## Step 7: 保存（Boxマスター）
 
-**Boxにアップロードする。** アップロード後、出力されたBox URLをユーザーに表示すること。
+`.box/credentials.json` が存在する場合、**Boxにアップロードする。** アップロード後、`Box path:` 行を引用して保存先をユーザーに案内すること（`.claude/rules/box-integration.md` の「## アップロード後のパス案内（ハルシネーション防止）」参照）。
 
 ```bash
 python3 tools/box_client.py upload {対象ファイルパス} \
   --folder-path "GAiDo/feedback/{案件名}"
 ```
 
-**Boxアップロードが失敗した場合**: エラー内容をユーザーに伝え、Boxへの再アップロードを促すこと。
+**Boxアップロードが失敗した場合**: エラー内容をユーザーに伝え、ローカルパス（`ai_generated/advisor/feedback/`）を案内して続行すること。
+
+**Box未連携の場合（`.box/credentials.json` が存在しない場合）**: アップロードをスキップし、「Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。保存先: `ai_generated/advisor/feedback/`」とユーザーに伝える。
 
 ## Step 8: 改善案分析（自動実行）
 
@@ -404,7 +406,7 @@ shared_feedback_count: {他担当者のFB数}
 {次回advisor利用時に特に注意すべきポイント}
 ```
 
-7. **保存（Boxマスター）** アップロード後、出力されたBox URLをユーザーに表示すること。
+7. **保存（Boxマスター）** `.box/credentials.json` が存在する場合、アップロード後に `Box path:` 行を引用して保存先をユーザーに案内する。Box未連携の場合はアップロードをスキップし、「Box未連携のためローカルに保存しました。Box連携を有効にすると、この成果物が自動でBoxに保存されます（GAiDoアプリの Step 4 で設定できます）。保存先: `ai_generated/advisor/feedback/`」と伝える。
 
 ```bash
 python3 tools/box_client.py upload {分析結果ファイルパス} \

@@ -23,3 +23,101 @@ time=2026-06-02T06:28:10.491Z level=INFO msg="received prompt" connId=019e8704-a
 time=2026-06-02T06:28:10.492Z level=INFO msg="claude process started" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b pid=641 mode=default
 time=2026-06-02T06:28:10.493Z level=INFO msg="process created" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b resume=false agentType=claude mode=default
 time=2026-06-02T06:28:10.508Z level=INFO msg="session title updated" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b title=新しくチャットを始めます。何ができるか教えて（このメッセージ...
+time=2026-06-02T06:29:39.113Z level=INFO msg="AskUserQuestion received" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b requestId=9b188a4a-c098-457e-b4b0-27bb718fd13d
+time=2026-06-02T07:51:11.578Z level=INFO msg="connection closed" connId=019e8704-a90f-75c0-a66b-b9328ac0d9be
+time=2026-06-02T07:52:39.709Z level=INFO msg="new connection" connId=019e8752-041c-7ee6-8b71-6cf3158f0d25
+time=2026-06-02T07:52:39.725Z level=INFO msg=authenticated connId=019e8752-041c-7ee6-8b71-6cf3158f0d25 worktree="" workDir=/workspace/target_repo
+time=2026-06-02T07:52:39.747Z level=INFO msg="subscribed to chat messages" connId=019e8752-041c-7ee6-8b71-6cf3158f0d25 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_ts6xrwwlem state=idle mode=default
+time=2026-06-02T07:52:39.748Z level=INFO msg="subscribed to chat messages" connId=019e8752-041c-7ee6-8b71-6cf3158f0d25 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_hplyspeaym state=idle mode=default
+time=2026-06-02T10:00:54.522Z level=INFO msg="connection closed" connId=019e8752-041c-7ee6-8b71-6cf3158f0d25
+time=2026-06-02T10:00:54.815Z level=INFO msg="shutting down server"
+time=2026-06-02T10:00:54.816Z level=INFO msg="SettingsWatcher stopped"
+time=2026-06-02T10:00:54.817Z level=INFO msg="WorkListWatcher stopped"
+time=2026-06-02T10:00:54.817Z level=INFO msg="WorkDetailWatcher stopped"
+time=2026-06-02T10:00:54.817Z level=INFO msg="AgentRoleListWatcher stopped"
+time=2026-06-02T10:00:54.817Z level=INFO msg="WorktreeWatcher stopped"
+time=2026-06-02T10:00:54.817Z level=INFO msg="FSWatcher stopped"
+time=2026-06-02T10:00:54.818Z level=INFO msg="GitWatcher stopped"
+time=2026-06-02T10:00:54.818Z level=INFO msg="GitDiffWatcher stopped"
+time=2026-06-02T10:00:54.818Z level=INFO msg="SessionListWatcher stopped"
+time=2026-06-02T10:00:54.818Z level=INFO msg="ChatMessagesWatcher stopped"
+time=2026-06-02T10:00:54.818Z level=INFO msg="terminating claude process" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b
+time=2026-06-02T10:00:54.819Z level=INFO msg="manager shutdown complete" processesClosed=1
+time=2026-06-02T10:00:54.819Z level=INFO msg="manager shutdown complete" worktreesClosed=1
+time=2026-06-02T10:00:54.821Z level=INFO msg="server stopped"
+time=2026-06-18T06:06:46.101Z level=INFO msg="store watching for external changes" label=settings path=/workspace/target_repo/.pockode/settings.json
+time=2026-06-18T06:06:46.104Z level=INFO msg="cleared orphaned NeedsInput flags" path=/workspace/target_repo/.pockode/sessions/index.json
+time=2026-06-18T06:06:46.104Z level=INFO msg="store watching for external changes" label=work path=/workspace/target_repo/.pockode/works/index.json
+time=2026-06-18T06:06:46.104Z level=INFO msg="store watching for external changes" label=agent-role path=/workspace/target_repo/.pockode/agent-roles/index.json
+time=2026-06-18T06:06:46.106Z level=INFO msg="WorktreeWatcher started" mainDir=/workspace/target_repo pollInterval=3s
+time=2026-06-18T06:06:46.106Z level=INFO msg="SettingsWatcher started"
+time=2026-06-18T06:06:46.106Z level=INFO msg="WorkListWatcher started"
+time=2026-06-18T06:06:46.106Z level=INFO msg="WorkDetailWatcher started"
+time=2026-06-18T06:06:46.106Z level=INFO msg="AgentRoleListWatcher started"
+time=2026-06-18T06:06:46.106Z level=INFO msg="server starting" port=9870 workDir=/workspace/target_repo dataDir=/workspace/target_repo/.pockode devMode=false idleTimeout=72h0m0s
+time=2026-06-18T06:06:49.134Z level=INFO msg="new connection" connId=019ed956-dd2e-7189-8982-1a1fc37c698d
+time=2026-06-18T06:06:49.187Z level=INFO msg="FSWatcher started" workDir=/workspace/target_repo
+time=2026-06-18T06:06:49.200Z level=INFO msg="GitWatcher started" workDir=/workspace/target_repo pollInterval=3s
+time=2026-06-18T06:06:49.200Z level=INFO msg="GitDiffWatcher started" workDir=/workspace/target_repo pollInterval=3s
+time=2026-06-18T06:06:49.200Z level=INFO msg="SessionListWatcher started"
+time=2026-06-18T06:06:49.200Z level=INFO msg="ChatMessagesWatcher started"
+time=2026-06-18T06:06:49.200Z level=INFO msg="worktree created" name="" workDir=/workspace/target_repo
+time=2026-06-18T06:06:49.200Z level=INFO msg=authenticated connId=019ed956-dd2e-7189-8982-1a1fc37c698d worktree="" workDir=/workspace/target_repo
+time=2026-06-18T06:06:50.450Z level=INFO msg="subscribed to chat messages" connId=019ed956-dd2e-7189-8982-1a1fc37c698d sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_zi5c7h5wny state=ended mode=default
+time=2026-06-18T06:06:50.453Z level=INFO msg="subscribed to chat messages" connId=019ed956-dd2e-7189-8982-1a1fc37c698d sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_5oso3veney state=ended mode=default
+time=2026-06-18T06:07:39.167Z level=INFO msg="new connection" connId=019ed957-a09f-7723-a57f-0a34c53e575a
+time=2026-06-18T06:07:39.172Z level=INFO msg=authenticated connId=019ed957-a09f-7723-a57f-0a34c53e575a worktree="" workDir=/workspace/target_repo
+time=2026-06-18T06:07:39.241Z level=INFO msg="subscribed to chat messages" connId=019ed957-a09f-7723-a57f-0a34c53e575a sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_nk5lpjkvkm state=ended mode=default
+time=2026-06-18T06:07:39.244Z level=INFO msg="subscribed to chat messages" connId=019ed957-a09f-7723-a57f-0a34c53e575a sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_63yjldn75a state=ended mode=default
+time=2026-06-18T06:37:31.739Z level=INFO msg="connection closed" connId=019ed957-a09f-7723-a57f-0a34c53e575a
+time=2026-06-18T06:39:50.857Z level=INFO msg="new connection" connId=019ed975-1a49-7a66-b2a7-c2bbd72315b3
+time=2026-06-18T06:39:51.014Z level=INFO msg=authenticated connId=019ed975-1a49-7a66-b2a7-c2bbd72315b3 worktree="" workDir=/workspace/target_repo
+time=2026-06-18T06:39:51.160Z level=INFO msg="subscribed to chat messages" connId=019ed975-1a49-7a66-b2a7-c2bbd72315b3 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_ndnntdsbxa state=ended mode=default
+time=2026-06-18T06:39:51.165Z level=INFO msg="subscribed to chat messages" connId=019ed975-1a49-7a66-b2a7-c2bbd72315b3 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_33cdjxuqmu state=ended mode=default
+time=2026-06-18T06:40:18.779Z level=INFO msg="new connection" connId=019ed975-875b-750f-a982-3ed02faa9859
+time=2026-06-18T06:40:18.782Z level=INFO msg=authenticated connId=019ed975-875b-750f-a982-3ed02faa9859 worktree="" workDir=/workspace/target_repo
+time=2026-06-18T06:40:18.815Z level=INFO msg="subscribed to chat messages" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_3jznhgnydy state=ended mode=default
+time=2026-06-18T06:40:18.821Z level=INFO msg="subscribed to chat messages" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_6fgygxbn7i state=ended mode=default
+time=2026-06-18T06:59:54.655Z level=INFO msg="received prompt" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=58
+time=2026-06-18T06:59:54.660Z level=INFO msg="resuming claude session" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b claudeSessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b
+time=2026-06-18T06:59:54.661Z level=INFO msg="claude process started" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b pid=3595 mode=default
+time=2026-06-18T06:59:54.663Z level=INFO msg="process created" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b resume=true agentType=claude mode=default
+time=2026-06-18T07:00:14.101Z level=INFO msg="connection closed" connId=019ed975-1a49-7a66-b2a7-c2bbd72315b3
+time=2026-06-18T07:00:14.117Z level=INFO msg="connection closed" connId=019ed956-dd2e-7189-8982-1a1fc37c698d
+time=2026-06-18T07:01:59.239Z level=INFO msg="received prompt" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=36
+time=2026-06-18T07:02:11.051Z level=INFO msg="AskUserQuestion received" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b requestId=e11a303e-fac6-42b2-8299-21bc6d9e9682
+time=2026-06-18T07:02:57.809Z level=INFO msg="sent question response" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b cancelled=false
+time=2026-06-18T07:05:31.624Z level=INFO msg="received prompt" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=81
+time=2026-06-18T07:07:11.643Z level=INFO msg="received prompt" connId=019ed975-875b-750f-a982-3ed02faa9859 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=141
+time=2026-06-18T07:17:58.347Z level=INFO msg="connection closed" connId=019ed975-875b-750f-a982-3ed02faa9859
+time=2026-06-18T07:18:02.730Z level=INFO msg="new connection" connId=019ed998-12ea-7afc-8a3f-825b21d5edef
+time=2026-06-18T07:18:02.734Z level=INFO msg=authenticated connId=019ed998-12ea-7afc-8a3f-825b21d5edef worktree="" workDir=/workspace/target_repo
+time=2026-06-18T07:18:02.778Z level=INFO msg="subscribed to chat messages" connId=019ed998-12ea-7afc-8a3f-825b21d5edef sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_q4cerrxxga state=idle mode=default
+time=2026-06-18T07:18:02.782Z level=INFO msg="subscribed to chat messages" connId=019ed998-12ea-7afc-8a3f-825b21d5edef sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_myg4zdpk3e state=idle mode=default
+time=2026-06-18T07:22:06.962Z level=INFO msg="new connection" connId=019ed99b-ccf2-75bb-b055-c9c40a1a7455
+time=2026-06-18T07:22:06.966Z level=INFO msg=authenticated connId=019ed99b-ccf2-75bb-b055-c9c40a1a7455 worktree="" workDir=/workspace/target_repo
+time=2026-06-18T07:22:06.995Z level=INFO msg="subscribed to chat messages" connId=019ed99b-ccf2-75bb-b055-c9c40a1a7455 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_y42j57ogdi state=idle mode=default
+time=2026-06-18T07:22:07.002Z level=INFO msg="subscribed to chat messages" connId=019ed99b-ccf2-75bb-b055-c9c40a1a7455 sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_zy4a3zjyga state=idle mode=default
+time=2026-06-18T07:24:25.582Z level=INFO msg="new connection" connId=019ed99d-ea6e-7b6f-9658-e757685258ce
+time=2026-06-18T07:24:25.588Z level=INFO msg=authenticated connId=019ed99d-ea6e-7b6f-9658-e757685258ce worktree="" workDir=/workspace/target_repo
+time=2026-06-18T07:24:25.634Z level=INFO msg="subscribed to chat messages" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_kyawx2m4rq state=idle mode=default
+time=2026-06-18T07:24:25.642Z level=INFO msg="subscribed to chat messages" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_ttrfcgd6hm state=idle mode=default
+time=2026-06-18T07:24:53.105Z level=INFO msg="received prompt" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=126
+time=2026-06-18T07:25:12.191Z level=INFO msg="connection closed" connId=019ed998-12ea-7afc-8a3f-825b21d5edef
+time=2026-06-18T07:25:12.222Z level=INFO msg="connection closed" connId=019ed99b-ccf2-75bb-b055-c9c40a1a7455
+time=2026-06-18T07:31:22.975Z level=INFO msg="received prompt" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=72
+time=2026-06-18T07:32:30.660Z level=INFO msg="AskUserQuestion received" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b requestId=d4ad795e-c7bb-43b5-beca-c1c085595952
+time=2026-06-18T07:33:30.695Z level=INFO msg="received prompt" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b length=51
+time=2026-06-18T07:47:34.838Z level=INFO msg="sending interrupt signal" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b
+time=2026-06-18T07:47:34.838Z level=INFO msg="sent interrupt" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b
+time=2026-06-18T07:47:34.848Z level=INFO msg="interrupt acknowledged" sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b requestId=1894216d507fd1445e647b27ff6e3308
+time=2026-06-18T07:47:42.070Z level=INFO msg="session created" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1
+time=2026-06-18T07:47:42.213Z level=INFO msg="subscribed to chat messages" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1 subscriptionId=cm_erqsk2whlm state=ended mode=default
+time=2026-06-18T07:47:42.214Z level=INFO msg="subscribed to chat messages" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1 subscriptionId=cm_kl2gpadgrq state=ended mode=default
+time=2026-06-18T07:47:42.265Z level=INFO msg="received prompt" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1 length=129
+time=2026-06-18T07:47:42.268Z level=INFO msg="claude process started" sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1 pid=6622 mode=default
+time=2026-06-18T07:47:42.272Z level=INFO msg="process created" sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1 resume=false agentType=claude mode=default
+time=2026-06-18T07:47:42.281Z level=INFO msg="session title updated" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019ed9b3-3976-78b9-ad89-a39db24573d1 title=新しくチャットを始めます。何ができるか教えて（このメッセージ...
+time=2026-06-18T07:47:54.077Z level=INFO msg="session title updated" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b title="OCP vs K8s"
+time=2026-06-18T07:47:56.851Z level=INFO msg="subscribed to chat messages" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_hv26zma4t4 state=idle mode=default
+time=2026-06-18T07:47:56.862Z level=INFO msg="subscribed to chat messages" connId=019ed99d-ea6e-7b6f-9658-e757685258ce sessionId=019e8704-a9f1-799b-b1e0-e142c6768c7b subscriptionId=cm_etyifi4ag4 state=idle mode=default
